@@ -2,16 +2,15 @@
 <div class="container">
 	<div class="row">
 	<div class="col-md-8">
-	<div class="ptitle">Idea Perniagaan<br/>
-	Ijazah Sarjana Muda Keusahawanan (2u2i)<br />
-	Fakulti Keusahawanan dan Perniagaan</div>
+	<div class="ptitle">IDEA PERNIAGAAN / BUSINESS IDEA<br/>
+	</div>
 	<br />
-	<strong>Nama:</strong> <?php echo $this->user->can_name ;?><br />
-	<strong>No. Kad Pengenalan:</strong>  <?php echo $this->user->user_name ;?>
+	<div class="form-group"><strong>NAMA/<i>Name</i>:</strong> <?php echo $this->user->can_name ;?><br />
+	<strong>NRIC/PASSPORT NO:</strong>  <?php echo $this->user->user_name ;?></div>
 	
 	</div>
 	<div class="col-md-4">
-		<div class="indicator"><span >MASA </span><span id="shortly"></span></div>
+		<div class="indicator"><span >MASA / TIME </span><span id="shortly"></span></div>
 		<div class="bar-container" id="progress-timer"><div id="progress-bar">&nbsp;</div></div>
 		
 	
@@ -25,7 +24,7 @@
 	if($this->status <> 3){
 		
 		?>
-		<div class="instruction" id="ginstruction2"><i>CALON BOLEH MENJAWAB DALAM BAHASA MELAYU ATAU BAHASA INGGERIS</i></div>
+		<div class="instruction" id="ginstruction2"><b>CALON BOLEH MENJAWAB DALAM BAHASA MELAYU ATAU BAHASA INGGERIS</b> /<br /> <i>THE CANDIDATE CAN ANSWER IN BAHASA OR ENGLISH</i></div>
 		
 		<?php
 	}
@@ -35,15 +34,20 @@
 
 		<?php 
 		if($this->status == 1){ ?>
-        <div id="ginstruction" class="instruction">ANDA MEMPUNYAI MASA BAKI <span id="masa"></span> UNTUK MENJAWAB UJIAN IDEA PERNIAGAAN INI. SEKIRANYA MASA TELAH TAMAT, JAWAPAN AKAN DIHANTAR SECARA AUTOMATIK.</div>
-		<button class="btn btn-success center-block" id="start-btn">SAMBUNG MENJAWAB</button>
+        <div id="ginstruction" class="instruction"><b>ANDA MEMPUNYAI MASA BAKI <span id="masa"></span> UNTUK MENJAWAB UJIAN IDEA PERNIAGAAN INI. SEKIRANYA MASA TELAH TAMAT, JAWAPAN AKAN DIHANTAR SECARA AUTOMATIK.</b>
+		<br /><br />
+		<i>YOU HAVE BALANCE TIME <span id="masa-en"></span> TO ANSWER THIS BUSINESS IDEA TEST. IF THE TIME ENDS, THE ANSWER WILL BE SUBMITTED AUTOMATICALLY.</i>
+		
+		
+		</div>
+		<button class="btn btn-success center-block" id="start-btn">SAMBUNG MENJAWAB / CONTINUE ANSWERING<</button>
 		<?php
 		$qstart = $this->user->question_last_saved;
 		}else if($this->status == 3){ ?>
-		<div id="ginstruction" class="instruction">ANDA TELAH MENJAWAB UJIAN INI.</div>
+		<div id="ginstruction" class="instruction"><b>ANDA TELAH MENJAWAB UJIAN INI </b>/ <i>YOU HAVE ANSWERED THE TEST</i></div>
 		
 		<div style="text-align:center">
-<a href="<?=Config::get('URL')?>option" class="btn btn-warning " id="kembali-btn">KEMBALI</a>
+<a href="<?=Config::get('URL')?>option" class="btn btn-warning " id="kembali-btn">KEMBALI / BACK</a>
 		
 		</div>
 
@@ -51,10 +55,16 @@
 		$qstart = 999;
 		}else { ?>
 		
-		<div id="ginstruction" class="instruction">ANDA MEMPUNYAI MASA <span id="masa"></span> UNTUK MENJAWAB UJIAN IDEA PERNIAGAAN INI. SEKIRANYA MASA TELAH TAMAT, JAWAPAN AKAN DIHANTAR SECARA AUTOMATIK.</div>
+		<div id="ginstruction" class="instruction"><b>ANDA MEMPUNYAI MASA <span id="masa"></span> UNTUK MENJAWAB UJIAN IDEA PERNIAGAAN INI. SEKIRANYA MASA TELAH TAMAT, JAWAPAN AKAN DIHANTAR SECARA AUTOMATIK.</b>
+		
+		<br /><br />
+		<i>YOU HAVE <span id="masa-en"></span> TO ANSWER THIS BUSINESS IDEA TEST. IF THE TIME ENDS, THE ANSWER WILL BE SUBMITTED AUTOMATICALLY.</i>
+		
+		
+		</div>
 		
 		<div align="center">
-		<a href="<?=Config::get('URL')?>option" class="btn btn-warning " id="kembali-btn">KEMBALI</a> <button class="btn btn-success" id="start-btn">MULA MENJAWAB</button>
+		<a href="<?=Config::get('URL')?>option" class="btn btn-warning " id="kembali-btn">KEMBALI / BACK</a> <button class="btn btn-success" id="start-btn">MULA MENJAWAB / START ANSWERING</button>
 		</div>
 		
 		<?php
@@ -85,13 +95,13 @@
 	<input type="hidden"  id="curr-name" value="<?php echo $qstart?>" />
 	
 
-	<button class="btn btn-danger hidden" id="submit-btn">HANTAR JAWAPAN</button>
+	<button class="btn btn-danger hidden" id="submit-btn">HANTAR JAWAPAN / SUBMIT ANSWER</button>
 	
 	</div>
 	<div id="errmsg" style="text-align:center;color:red"></div>
 	<div id="goodmsg" style="text-align:center;display:none">
 	<img src="<?php echo Config::get('URL')?>images/loading.gif" /><br/>
-	Sila Tunggu, Jawapan Anda Sedang Dihantar...
+	Sila Tunggu, Jawapan Anda Sedang Dihantar / Please wait, your answering is being submitted
 	</div>
     </div>
 	
@@ -184,18 +194,23 @@ var totalQuestion  = 1;
 $('#shortly').text(mm+':'+ss);
 $('#con-quest').text(qlastsaved +'/'+totalQuestion);
 if(ss > 0){
-	stringsaat = ss + " SAAT ";
+	stringsaat = ss + " SAAT";
+	stringsaat2 = ss + " SECOND(S)";
 }else{
 	stringsaat ="";
+	stringsaat2="";
 }
 if(mm > 0){
 	stringminit = mm + " MINIT ";
+	stringminit2 = mm + " MINUTE(S) ";
 }else{
 	stringminit ="";
+	stringminit2="";
 }
 $('#masa').text(stringminit + stringsaat);
-var errmsg ="Soalan ini mesti dijawab!";
-var linklogout = "<br /><br /><a href='<?php echo Config::get('URL'); ?>option'>Kembali</a>";
+$('#masa-en').text(stringminit2 + stringsaat2);
+var errmsg ="Soalan ini mesti dijawab / This question must be attempted";
+var linklogout = "<br /><br /><a href='<?php echo Config::get('URL'); ?>option'>Kembali / Back</a>";
 var seterus = parseInt($("#curr-name").val() + 1);
 prog = qlastsaved / totalQuestion * 100;
 prog = prog.toFixed(0) + '%';
@@ -265,7 +280,7 @@ $("#submit-btn").click(function(){
 		$("#submit-btn").addClass("hidden");
 		$("#question-form").addClass("hidden");
 		submitForm(0,0);
-		$('#ginstruction').html("Ujian Idea Perniagaan Tamat"+linklogout); 
+		$('#ginstruction').html("Ujian Idea Perniagaan Tamat / Business Idea Test Ends"+linklogout); 
 		$('#ginstruction').removeClass("hidden");
 		stopTimer();
 		$('#shortly').countdown('toggle');
@@ -285,7 +300,7 @@ function stopTimer(){
 		$('#timerMsg').addClass("hidden");
 }
 function liftOff() { 
-	$('#ginstruction').html("Masa telah tamat"+linklogout); 
+	$('#ginstruction').html("Masa telah tamat / The time ends"+linklogout); 
 	$('#ginstruction').removeClass("hidden");
 	$('#quest-container').hide();
 	submitForm(0,0);
@@ -353,7 +368,7 @@ function ajaxSubmit(action,curtime){
 			if(action==0){
 				if(result ==1){
 					$("#errmsg").html("");
-					$("#goodmsg").html("Jawapan Anda Telah Berjaya Dihantar.<br />Terima Kasih Kerana Menjalani Ujian Ini.");
+					$("#goodmsg").html("<strong>Jawapan Anda Telah Berjaya Dihantar.<br />Terima Kasih Kerana Menjalani Ujian Ini. </strong><br /> <i>Your Answers Has Been Successfully Submitted. Thanks for Answering The Test.</i>");
 					$("#conxls").removeClass("hidden");
 				}else{
 					$("#errmsg").html("Server Problem!");
@@ -386,7 +401,7 @@ function errInternetConnection(action){
 	}else if(action ==0){
 		$("#goodmsg").hide();
 		$("#errmsg").show();
-		$("#errmsg").html("Jawapan anda tidak boleh dihantar buat masa ini oleh kerana terdapat masalah internet.<br/><br/><button class='btn btn-default' id='hantarlagi'>Cuba Hantar Lagi</button>");
+		$("#errmsg").html("Jawapan anda tidak boleh dihantar buat masa ini oleh kerana terdapat masalah internet / Your answer cannot be submitted for the time being due to internet connection problem.<br/><br/><button class='btn btn-default' id='hantarlagi'>Cuba Hantar Lagi / Try to Resubmit</button>");
 		$("#conxls").removeClass("hidden");
 		reloadbuttonresubmit();
 	}

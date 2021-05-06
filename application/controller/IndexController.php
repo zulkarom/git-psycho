@@ -20,6 +20,12 @@ class IndexController extends Controller
 			'open'=>UserModel::getOpenInterview()
 		));
     }
+	 public function en()
+    {
+        $this->View->render('login/english', array(
+			'open'=>UserModel::getOpenInterview()
+		));
+    }
 	public function ujian(){
 		$this->View->renderPsi('login/psikometrik', array(
 			'open'=>UserModel::getOpenInterview()

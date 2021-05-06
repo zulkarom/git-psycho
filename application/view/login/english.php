@@ -10,23 +10,14 @@
             <div>
 			
 			<div class="row">
-<div class="col-md-3"><img src="<?php echo Config::get('URL'); ?>images/umk.jpg" /></div>
-
-<div class="col-md-9">
-
-<div class="row">
 				<div class="col-md-1"></div>
 				<div class="col-md-10" align="center">
 				
+				<img src="<?php echo Config::get('URL'); ?>images/umk.jpg" />
 				
-				
-				<h4>TEMUDUGA ATAS TALIAN <br />
-				IJAZAH SARJANA MUDA KEUSAHAWANAN (2u2i)<br />
-				FAKULTI KEUSAHAWANAN DAN PERNIAGAAN</h4>
-				<br />
-				<i><h4>ONLINE INTERVIEW <br />
+				<h3>ONLINE INTERVIEW <br />
 				BACHELOR OF ENTREPRENEURSHIP<br />
-				FACULTY OF ENTREPRENEURSHIP AND BUSINESS</h4></i>
+				FACULTY OF ENTREPRENEURSHIP AND BUSINESS</h3>
 				
 				<div class="row">
 				<div class="col-md-3"></div>
@@ -43,18 +34,18 @@
 				<div class="form-group">
 				<label for="user_name">NRIC/PASSPORT NO.:</label>
 				
-				<input type="text" name="user_name"  class="form-control" required />
+				<input type="text" name="user_name" class="form-control" required />
 				</div>
                     <?php if (!empty($this->redirect)) { ?>
                         <input type="hidden" name="redirect" value="<?php echo $this->encodeHTML($this->redirect); ?>" />
                     <?php } ?>
 					<input type="hidden" name="csrf_token" value="<?= Csrf::makeToken(); ?>" />
-                    <input type="submit" class="btn btn-primary" value="LOG IN"/>
+                    <input type="submit" class="btn btn-primary" value="LOG MASUK"/>
                 </form>
 				
 				<?php } else { 
 				
-				echo '<h4>TUTUP</h4>';
+				echo '<h4>CLOSED</h4>';
 				}
 				?>
 				</div>
@@ -64,11 +55,6 @@
 				</div>
 				<div class="col-md-1"></div>
 			</div>
-</div>
-
-</div>
-			
-			
 				
                 
 

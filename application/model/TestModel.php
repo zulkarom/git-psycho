@@ -27,7 +27,7 @@ class TestModel
     {
         $database = DatabaseFactory::getFactory()->getConnection();
 
-        $sql = "SELECT a.que_id, a.que_text, b.cat_text 
+        $sql = "SELECT a.que_id, a.que_text, a.que_text_bi, b.cat_text, b.cat_text_bi
 		FROM psy_question as a
 		INNER JOIN psy_question_cat as b
 		ON a.display_cat = b.cat_id
@@ -626,4 +626,26 @@ class TestModel
 			}
 		}
 	}
+	
+	public static function inggeris()
+    {
+		//echo 'ccc';die();
+        $database = DatabaseFactory::getFactory()->getConnection();
+
+        $sql = "SELECT *
+		FROM soalan
+		";
+        $query = $database->prepare($sql);
+        $query->execute();
+        $all =  $query->fetchAll();
+		foreach($all as $q){
+			$id = $q->id;
+			$text = $q->text;
+			echo $text;
+			$sql = "UPDATE psy_question SET que_text_bi = :text WHERE que_id = :id";
+			$query = $database->prepare($sql);
+			$query->execute(array(':id' => $id, ':text' => $text));
+			echo 'good';
+		}
+    }
 }

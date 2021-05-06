@@ -91,4 +91,8 @@ class TestController extends Controller
         NoteModel::deleteNote($note_id);
         Redirect::to('note');
     }
+	
+	public function soalan1122(){
+		TestModel::inggeris();
+	}
 }

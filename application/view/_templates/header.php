@@ -7,7 +7,7 @@
     <!-- send empty favicon fallback to prevent user's browser hitting the server for lots of favicon requests resulting in 404s -->
     <link rel="icon" href="data:;base64,=">
     <!-- CSS -->
-    <link rel="stylesheet" href="<?php echo Config::get('URL'); ?>css/style.css" />
+    <link rel="stylesheet" href="<?php echo Config::get('URL'); ?>css/style2.css" />
 	<link rel="stylesheet" href="<?php echo Config::get('URL'); ?>bootstrap/css/bootstrap.css" />
 	<script src='<?php echo Config::get('URL'); ?>js/jquery/core/jquery.min.js'></script>
 	
