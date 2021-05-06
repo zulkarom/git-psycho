@@ -1,1 +1,1 @@
-# git-psycho
+git-psycho
