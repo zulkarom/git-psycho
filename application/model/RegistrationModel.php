@@ -54,7 +54,7 @@ class RegistrationModel
 			return false;
 		}else{
 			TestModel::insertAnswerSlot($user_id);
-			TestModel::insertAnswerOverall($user_id);
+			//TestModel::insertAnswerOverall($user_id);
 		}
 		
 
