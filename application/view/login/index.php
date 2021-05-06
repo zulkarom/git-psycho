@@ -21,7 +21,7 @@
 				
 				
 				<h4>TEMUDUGA ATAS TALIAN <br />
-				IJAZAH SARJANA MUDA KEUSAHAWANAN (2u2i)<br />
+				IJAZAH SARJANA MUDA KEUSAHAWANAN<br />
 				FAKULTI KEUSAHAWANAN DAN PERNIAGAAN</h4>
 				<br />
 				<i><h4>ONLINE INTERVIEW <br />
@@ -54,7 +54,7 @@
 				
 				<?php } else { 
 				
-				echo '<h4>TUTUP</h4>';
+				echo '<h3>TUTUP / CLOSED</h3>';
 				}
 				?>
 				</div>
