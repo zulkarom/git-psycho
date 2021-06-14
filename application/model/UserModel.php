@@ -630,6 +630,13 @@ class UserModel
                 $sql = "INSERT INTO users (can_name, user_name, can_batch, can_zone) VALUES (:name, :ic, :batch, :zone);";
                 $query = $database->prepare($sql);
                 $query->execute(array(':name'=>$can->can_name, ':ic' => $can->can_ic, ':zone' => $zone, ':batch' => $batch));
+                
+                $user_id = self::getUserIdByUsername($can->can_ic);
+                $sql = "INSERT INTO psy_answers (can_id) VALUES (:id);";
+                $query = $database->prepare($sql);
+                $query->execute(array(':id' => $user_id));
+                
+                
                 echo $can->can_name . ' -  ' . $can->can_ic. ': good <br />';
             }
         }
