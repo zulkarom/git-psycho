@@ -617,4 +617,21 @@ class UserModel
         // return one row (we only have one result or nothing)
         return $query->fetch();
     }
+    
+    public static function importData($batch, $zone){
+        $database = DatabaseFactory::getFactory()->getConnection();
+        $sql = "SELECT *
+		FROM data_import";
+        $query = $database->prepare($sql);
+        $query->execute();
+        $list = $query->fetchAll();
+        if($list){
+            foreach($list as $can){
+                $sql = "INSERT INTO users (can_name, user_name, can_batch, can_zone) VALUES (:name, :ic, :batch, :zone);";
+                $query = $database->prepare($sql);
+                $query->execute(array(':name'=>$can->can_name, ':ic' => $can->can_ic, ':zone' => $zone, ':batch' => $batch));
+                echo $can->can_name . ' -  ' . $can->can_ic. ': good <br />';
+            }
+        }
+    }
 }

@@ -134,6 +134,12 @@ class AdminController extends Controller
 	public function downloadoffline(){
 		Redirect::to("ksdj23o8headuh2o8374/offline.xls");
 	}
+	
+	public function importdata(){
+	    $batch = 2;
+	    $zone = 5; // online
+	    UserModel::importData($batch, $zone) ;
+	}
 
 
 }
