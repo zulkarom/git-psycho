@@ -187,7 +187,7 @@ $("#submit-btn").click(function(){
 		$("#q"+curr).addClass("hidden");
 		$("#submit-btn").addClass("hidden");
 		submitForm(0,0);
-		$('#ginstruction').html(""); 
+		$('#ginstruction').html("Ujian Psikometrik Tamat / The Psychometric Test Ends"+linklogout); 
 		$('#ginstruction').removeClass("hidden");
 		stopTimer();
 		$('#shortly').countdown('toggle');
@@ -261,7 +261,7 @@ function stopTimer(){
 		$('#timerMsg').addClass("hidden");
 }
 function liftOff() { 
-	$('#ginstruction').html("Masa telah tamat / The time ends"+linklogout); 
+	$('#ginstruction').html("Masa telah tamat / The time ends"); 
 	$('#ginstruction').removeClass("hidden");
 	$('#quest-container').hide();
 	submitForm(0,0);
@@ -334,8 +334,8 @@ function ajaxSubmit(action,curtime){
         success: function(result){
 			if(action==0){
 				if(result ==1){
-					$("#errmsg").html("Ujian Psikometrik Tamat / The Psychometric Test Ends");
-					$("#goodmsg").html("<strong>Jawapan Ujian Psikometrik Telah Berjaya Dihantar.<br /></strong><br /> <i>Your Psychometric Test Answers Has Been Successfully Submitted.</i>");
+					$("#errmsg").html("");
+					$("#goodmsg").html("<strong>Jawapan Anda Telah Berjaya Dihantar.</strong><br /> <i>Your Answers Has Been Successfully Submitted.</i>");
 					$("#conxls").removeClass("hidden");
 				}else{
 					$("#errmsg").html("Server Problem!");
