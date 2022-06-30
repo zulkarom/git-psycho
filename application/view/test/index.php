@@ -334,7 +334,7 @@ function ajaxSubmit(action,curtime){
         success: function(result){
 			if(action==0){
 				if(result ==1){
-					$("#errmsg").html("");
+					$("#errmsg").html("Ujian Psikometrik Tamat / The Psychometric Test Ends");
 					$("#goodmsg").html("<strong>Jawapan Ujian Psikometrik Telah Berjaya Dihantar.<br /></strong><br /> <i>Your Psychometric Test Answers Has Been Successfully Submitted.</i>");
 					$("#conxls").removeClass("hidden");
 				}else{
