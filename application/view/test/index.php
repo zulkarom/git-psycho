@@ -187,7 +187,7 @@ $("#submit-btn").click(function(){
 		$("#q"+curr).addClass("hidden");
 		$("#submit-btn").addClass("hidden");
 		submitForm(0,0);
-		$('#ginstruction').html("Ujian Tamat / The Test Ends"+linklogout); 
+		$('#ginstruction').html(""); 
 		$('#ginstruction').removeClass("hidden");
 		stopTimer();
 		$('#shortly').countdown('toggle');
@@ -335,7 +335,7 @@ function ajaxSubmit(action,curtime){
 			if(action==0){
 				if(result ==1){
 					$("#errmsg").html("");
-					$("#goodmsg").html("<strong>Jawapan Anda Telah Berjaya Dihantar.<br />Terima Kasih Kerana Menjalani Ujian Ini. </strong><br /> <i>Your Answers Has Been Successfully Submitted. Thanks for Answering The Test.</i>");
+					$("#goodmsg").html("<strong>Jawapan Ujian Psikometrik Telah Berjaya Dihantar.<br /></strong><br /> <i>Your Psychometric Test Answers Has Been Successfully Submitted.</i>");
 					$("#conxls").removeClass("hidden");
 				}else{
 					$("#errmsg").html("Server Problem!");
